@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheapZone API</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class=row>
+    <div class="col-md-12 collection-intro">
+        <h3>CheapZone</h3>
+        <p>
+        <p>CheapZone is an online ecommerce web application backend api with a variety of modules like the auth module,
+            product module, category module , roles module and the order modules.
+    </div>
+    <div class=col-md-12>
+        <div class=col-md-3>
+            <ul>
+                <li><strong><a href=#Auth>Auth</a></strong>
+                    <ul>
+                        <li><a class=endpoint_menu href=#jump-Auth-Getcurrentuser>Get current user</a>
+                        <li><a class=endpoint_menu href=#jump-Auth-Login>Login</a>
+                        <li><a class=endpoint_menu href=#jump-Auth-RegisterUser>Register User</a>
+                    </ul>
+                <li><strong><a href=#Category>Category</a></strong>
+                    <ul>
+                        <li><a class=endpoint_menu href=#jump-Category-Addcategory>Add category</a>
+                        <li><a class=endpoint_menu href=#jump-Category-Categories>Categories</a>
+                        <li><a class=endpoint_menu href=#jump-Category-Getcategory>Get category</a>
+                    </ul>
+                <li><strong><a href=#Orders>Orders</a></strong>
+                    <ul>
+                        <li><a class=endpoint_menu href=#jump-Orders-GetOrders>Get Orders</a>
+                        <li><a class=endpoint_menu href=#jump-Orders-Getorder>Get order</a>
+                        <li><a class=endpoint_menu href=#jump-Orders-Makeorder>Make order</a>
+                    </ul>
+                <li><strong><a href=#Products>Products</a></strong>
+                    <ul>
+                        <li><a class=endpoint_menu href=#jump-Products-Addproduct>Add product</a>
+                        <li><a class=endpoint_menu href=#jump-Products-DeleteProduct>Delete Product</a>
+                        <li><a class=endpoint_menu href=#jump-Products-GetProducts>Get Products</a>
+                        <li><a class=endpoint_menu href=#jump-Products-Getaspecificproduct>Get a specific product</a>
+                        <li><a class=endpoint_menu href=#jump-Products-Updateproduct>Update product</a>
+                    </ul>
+                <li><strong><a href=#Roles>Roles</a></strong>
+                    <ul>
+                        <li><a class=endpoint_menu href=#jump-Roles-AddRole>Add Role</a>
+                        <li><a class=endpoint_menu href=#jump-Roles-Addroletouser>Add role to user</a>
+                        <li><a class=endpoint_menu href=#jump-Roles-Getrole>Get role</a>
+                        <li><a class=endpoint_menu href=#jump-Roles-Getroles>Get roles</a>
+                    </ul>
+            </ul>
+        </div>
+        <div class=col-md-9>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h3 class=panel-title id=Auth>Auth
+                        <span class=badge>3</span></h3>
+                </div>
+                <div class=panel-body>
+                    <p>
+                    <p>User authentication and authorization.
+                        This modules includes user registration, user login and finding the currently logged in user.
+                        Authorization is role based, ie the user is given adefault role of a csutomer on successfully
+                        registration.
+                    <div class=request-item>
+                        <div class=panel-group id=accordion-Auth>
+                            <div class="panel panel-info" id=jump-Auth-Getcurrentuser>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-info data-toggle=collapse data-parent=#accordion-Auth
+                                        href=#collapse-Auth-Getcurrentuser>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                current user</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/users/me</h4>
+                                    </a></div>
+                                <div id=collapse-Auth-Getcurrentuser class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This routes enables to find the currently logged in user into the system.
+                                                It&rsquo;s protected which means anonymus user can&rsquo;t access this
+                                                route.
+                                        </small><br><br>
+                                        <h5 class="label label-warning">Headers</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key
+                                                    <th>Value
+                                                    <th>Description
+                                            <tbody>
+                                                <tr>
+                                                    <td>auth-token
+                                                    <td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWZhYzBkYWZiYTU1MWMxZTYwZmQ0NzdjIn0sImlhdCI6MTYwNjEyNTI2NCwiZXhwIjoxNjA4NzE3MjY0fQ.2Slj2nTWS_OgLH_r4_7cE_wDMWyFSIKv6UW027BylaQ
+                                                    <td>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-success" id=jump-Auth-Login>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
+                                        href=#collapse-Auth-Login>
+                                        <h4 class=panel-title><span
+                                                class="glyphicon glyphicon-plus"></span><strong>Login</strong>
+                                            &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/users</h4>
+                                    </a></div>
+                                <div id=collapse-Auth-Login class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>In this router, the user can get authenticated into the system after
+                                                providing avalid email and password.
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;email&#34;:&#34;ntumwar@gmail.com&#34;,
+                                            &#34;password&#34;:&#34;Nseribetya@123&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-success" id=jump-Auth-RegisterUser>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
+                                        href=#collapse-Auth-RegisterUser>
+                                        <h4 class=panel-title><span
+                                                class="glyphicon glyphicon-plus"></span><strong>Register User</strong>
+                                            &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/users/register</h4>
+                                    </a></div>
+                                <div id=collapse-Auth-RegisterUser class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>In this section of the module a new user can create an account by
+                                                providing a valid email, password and fullname and by default he/she is
+                                                given a role of a customer.
+                                                After succesfull registration the user in loggedin directly into the
+                                                system.
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;name&#34;:&#34;Bukenya Andrew&#34;,
+                                            &#34;email&#34;:&#34;Bukenya@gmail.com&#34;,
+                                            &#34;password&#34;:&#34;Nseribetya@123&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h3 class=panel-title id=Category>Category
+                        <span class=badge>3</span></h3>
+                </div>
+                <div class=panel-body>
+                    <p>
+                    <p>In this category modules, we truck all the available categories of products that we offer to the
+                        custemers, ie brands and genders
+                    <div class=request-item>
+                        <div class=panel-group id=accordion-Category>
+                            <div class="panel panel-success" id=jump-Category-Addcategory>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Category
+                                        href=#collapse-Category-Addcategory>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Add
+                                                category</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            http://localhost:5000/api/v1/category</h4>
+                                    </a></div>
+                                <div id=collapse-Category-Addcategory class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This rooite adds anew category to the database
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;name&#34;:&#34;casual&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Category-Categories>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Category
+                                        href=#collapse-Category-Categories>
+                                        <h4 class=panel-title><span
+                                                class="glyphicon glyphicon-plus"></span><strong>Categories</strong>
+                                            &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/category</h4>
+                                    </a></div>
+                                <div id=collapse-Category-Categories class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This route gets all categories from the server
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Category-Getcategory>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Category
+                                        href=#collapse-Category-Getcategory>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                category</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/category/5fb7ec7636c2643a0c374d7a</h4>
+                                    </a></div>
+                                <div id=collapse-Category-Getcategory class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Gets a specific category aas per the given id in the url
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h3 class=panel-title id=Orders>Orders
+                        <span class=badge>3</span></h3>
+                </div>
+                <div class=panel-body>
+                    <p>
+                    <p>In this orders module, the admin can truck all the orders made by customers.
+                        It includes making an order, getting details of a certain order, updating agiven order and also
+                        deleting an order functionality.
+                    <div class=request-item>
+                        <div class=panel-group id=accordion-Orders>
+                            <div class="panel panel-info" id=jump-Orders-GetOrders>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Orders
+                                        href=#collapse-Orders-GetOrders>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                Orders</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/orders</h4>
+                                    </a></div>
+                                <div id=collapse-Orders-GetOrders class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here admin gets all orders made by custeomers
+                                        </small><br><br>
+                                        <h5 class="label label-warning">Headers</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key
+                                                    <th>Value
+                                                    <th>Description
+                                            <tbody>
+                                                <tr>
+                                                    <td>auth-token
+                                                    <td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWZhYzBkYWZiYTU1MWMxZTYwZmQ0NzdjIn0sImlhdCI6MTYwNjE0MjE2MywiZXhwIjoxNjA4NzM0MTYzfQ.fzRZ3MNELGZUKmsL4tZFAplIddFLf0vkn7B5tMUeCBQ
+                                                    <td>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Orders-Getorder>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Orders
+                                        href=#collapse-Orders-Getorder>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                order</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/orders/5fb64f373137e9064c9093ba</h4>
+                                    </a></div>
+                                <div id=collapse-Orders-Getorder class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here the admin gets the details of a specific order basing on the order
+                                                id passed in the uri as a parameter.
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-success" id=jump-Orders-Makeorder>
+                                <div class=panel-heading><small class="pull-right text-muted">formdata</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Orders
+                                        href=#collapse-Orders-Makeorder>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Make
+                                                order</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/orders</h4>
+                                    </a></div>
+                                <div id=collapse-Orders-Makeorder class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here the custemer create orders and sends them into the system.
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h3 class=panel-title id=Products>Products
+                        <span class=badge>5</span></h3>
+                </div>
+                <div class=panel-body>
+                    <p>
+                    <p>In this product module, CRUD dunctionality on product is made, ie adding new product, getting all
+                        the avaliable products, getting a spicific product, updating a given product and also deleting a
+                        certain product.
+                        It&rsquo;s in this module that products can be sorted, pagnated and also filtered.
+                    <div class=request-item>
+                        <div class=panel-group id=accordion-Products>
+                            <div class="panel panel-success" id=jump-Products-Addproduct>
+                                <div class=panel-heading><small class="pull-right text-muted">formdata</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Products
+                                        href=#collapse-Products-Addproduct>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Add
+                                                product</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/products</h4>
+                                    </a></div>
+                                <div id=collapse-Products-Addproduct class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>It&rsquo;s here that we can add a new product into the software
+                                        </small><br><br>
+                                        <h5 class="label label-warning">Headers</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key
+                                                    <th>Value
+                                                    <th>Description
+                                            <tbody>
+                                                <tr>
+                                                    <td>auth-token
+                                                    <td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWZhYzBkYWZiYTU1MWMxZTYwZmQ0NzdjIn0sImlhdCI6MTYwNjIxMTQ2OSwiZXhwIjoxNjA4ODAzNDY5fQ.x16yzNHVwCoyeQzcoCQshT218L_1dw5HgU-HpMRtW9A
+                                                    <td>
+                                        </table>
+                                        <h5 class="label label-primary">Body</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key
+                                                    <th>Value
+                                                    <th>Description
+                                            <tbody>
+                                                <tr>
+                                                    <td>title
+                                                    <td>testing 4
+                                                    <td>
+                                                <tr>
+                                                    <td>description
+                                                    <td>testing file upload with corresponding data
+                                                    <td>
+                                                <tr>
+                                                    <td>price
+                                                    <td>20
+                                                    <td>
+                                                <tr>
+                                                    <td>quantity
+                                                    <td>120
+                                                    <td>
+                                                <tr>
+                                                    <td>image
+                                                    <td>
+                                                    <td>
+                                                <tr>
+                                                    <td>brand
+                                                    <td>Nike
+                                                    <td>
+                                                <tr>
+                                                    <td>rating
+                                                    <td>3
+                                                    <td>
+                                                <tr>
+                                                    <td>category
+                                                    <td>5fb7ec7636c2643a0c374d7a
+                                                    <td>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Products-DeleteProduct>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Products
+                                        href=#collapse-Products-DeleteProduct>
+                                        <h4 class=panel-title><span
+                                                class="glyphicon glyphicon-plus"></span><strong>Delete Product</strong>
+                                            &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/products</h4>
+                                    </a></div>
+                                <div id=collapse-Products-DeleteProduct class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This routes deletes a single product from the as per the provided id in
+                                                the uri as the parameter.
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Products-GetProducts>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Products
+                                        href=#collapse-Products-GetProducts>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                Products</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/products</h4>
+                                    </a></div>
+                                <div id=collapse-Products-GetProducts class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This routes sends a request to the server to get all the available
+                                                products.
+                                                Here we can also do sorting, pagnation and filtering of the products.
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Products-Getaspecificproduct>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Products
+                                        href=#collapse-Products-Getaspecificproduct>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                a specific product</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/products/5fac18b57063b8155cf114ed</h4>
+                                    </a></div>
+                                <div id=collapse-Products-Getaspecificproduct class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This routes fetches a single product from the as per the provided id in
+                                                the uri as the parameter.
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-warning" id=jump-Products-Updateproduct>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-warning data-toggle=collapse data-parent=#accordion-Products
+                                        href=#collapse-Products-Updateproduct>
+                                        <h4 class=panel-title><span
+                                                class="glyphicon glyphicon-plus"></span><strong>Update product</strong>
+                                            &nbsp;|&nbsp;
+                                            <strong class="request-method border-warning">PATCH</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/products/5fac18b57063b8155cf114ee</h4>
+                                    </a></div>
+                                <div id=collapse-Products-Updateproduct class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>This route updates a specific product as per the the provided id in the
+                                                url.
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;brand&#34;:&#34;spotify&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h3 class=panel-title id=Roles>Roles
+                        <span class=badge>4</span></h3>
+                </div>
+                <div class=panel-body>
+                    <p>
+                    <p>This roles module is accessed by only the adminstrator of the system as it deals with CRUD
+                        functionality of the roles as well as asigning roles to the different users of the sysytem.
+                    <div class=request-item>
+                        <div class=panel-group id=accordion-Roles>
+                            <div class="panel panel-success" id=jump-Roles-AddRole>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-success data-toggle=collapse data-parent=#accordion-Roles
+                                        href=#collapse-Roles-AddRole>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Add
+                                                Role</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-success">POST</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/roles</h4>
+                                    </a></div>
+                                <div id=collapse-Roles-AddRole class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here the admin can add new role
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;title&#34;:&#34;Cusomter&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-warning" id=jump-Roles-Addroletouser>
+                                <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                    <a class=text-warning data-toggle=collapse data-parent=#accordion-Roles
+                                        href=#collapse-Roles-Addroletouser>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Add
+                                                role to user</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-warning">PATCH</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/users/roles/5fbb6087d1dd9c0bd4c2b631</h4>
+                                    </a></div>
+                                <div id=collapse-Roles-Addroletouser class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here the admin can sign roles to a user
+                                        </small><br><br>
+                                        <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                            &#34;title&#34;:&#34;Cusomter&#34;
+                                            }</span>
+                                        <div class=clearfix></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Roles-Getrole>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Roles href=#collapse-Roles-Getrole>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                role</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/api/v1/roles/5fbb67859709cf1458abddf7</h4>
+                                    </a></div>
+                                <div id=collapse-Roles-Getrole class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>Here the admin can get aspecific role by passing the role id as a
+                                                parameter in the uri.
+                                        </small><br><br>
+                                        <h5 class="label label-warning">Headers</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Key
+                                                    <th>Value
+                                                    <th>Description
+                                            <tbody>
+                                                <tr>
+                                                    <td>auth-token
+                                                    <td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWZhYzBkYWZiYTU1MWMxZTYwZmQ0NzdjIn0sImlhdCI6MTYwNjE0MjE2MywiZXhwIjoxNjA4NzM0MTYzfQ.fzRZ3MNELGZUKmsL4tZFAplIddFLf0vkn7B5tMUeCBQ
+                                                    <td>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-info" id=jump-Roles-Getroles>
+                                <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info
+                                        data-toggle=collapse data-parent=#accordion-Roles href=#collapse-Roles-Getroles>
+                                        <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get
+                                                roles</strong> &nbsp;|&nbsp;
+                                            <strong class="request-method border-info">GET</strong>
+                                            &nbsp;
+                                            https://cheapzone-api.herokuapp.com/v1/roles</h4>
+                                    </a></div>
+                                <div id=collapse-Roles-Getroles class="panel-collapse collapse">
+                                    <div class=panel-body>
+                                        <h5 class="label label-default">Description</h5><br><small>
+                                            <p>In this route we get all the registered roles in the system.
+                                        </small><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="navbar-default navbar-fixed-bottom">
+        <div class=container-fluid>
+            <div class="span12 text-center"><span data-toggle=tooltip
+                    title="If the application help you, please feel free to give a star to the project in github. Your star inspire me to work more on open-source projects like this!">Made
+                    with <em class=love-color>&#9829;</em> by <a href=https://github.com/thedevsaddam target=_blank
+                        class=text-muted>thedevsaddam</a> | Generated at: 2020-11-26 22:54:00 by <a
+                        href=https://github.com/thedevsaddam/docgen target=_blank class=text-muted>docgen</a></span></div>
+        </div>
+    </footer>
+    <script src="./scripts.js"></script>
+</body>
+</html>
